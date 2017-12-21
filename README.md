@@ -28,7 +28,7 @@ const Cooky = require("cooky");
 <html>
   <head>
     <!-- [...] -->
-    <script src="path/to/cooky.js"></script>
+    <script src="path/to/cooky.web.js"></script>
   </head>
   <body>
     <!-- [...] -->
