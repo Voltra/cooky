@@ -127,4 +127,4 @@ function makeImmutable(object){
 makeImmutable(Cooky);
 
 
-/*export default Cooky*/
+export default Cooky;

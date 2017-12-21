@@ -1,0 +1,31 @@
+{
+  "name": "cooky",
+  "version": "1.0.0",
+  "description": "A lightweight library that allows you to manage simple cookies in JS",
+  "main": "dist/cooky.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Voltra/cooky.git"
+  },
+  "keywords": [
+    "cookie",
+    "http",
+    "javascript"
+  ],
+  "author": "Voltra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Voltra/cooky/issues"
+  },
+  "homepage": "https://github.com/Voltra/cooky#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "webpack": "^3.10.0"
+  }
+}
