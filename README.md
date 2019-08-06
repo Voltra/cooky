@@ -36,7 +36,7 @@ const Cooky = require("cooky");
 </html>
 ```
 
-Then you'll be able to use it.
+Then you'll be able to use it (either as `cooky.Cooky` or `Cooky` for in-browser use).
 
 
 
@@ -108,3 +108,7 @@ Creates a new cookie that corresponds to `name=value; `
 ## Compatibility
 
 Since the source code of `cooky` was written using ES6+ syntax and transpiled using `babel` and its preset `env` with default settings, the compatibilities are the one you obtain from transpiling using `env` with its default settings.
+
+## Changes
+### v2.0.0
+In version 2.1.0, the cookie parsing algorithm has been revisited to allow parsing of object-like cookies and use of `decodeURIComponent` for some backend technologies.

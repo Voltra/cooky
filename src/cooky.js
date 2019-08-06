@@ -9,15 +9,36 @@ const Cooky = {
         return document.cookie
         .split("; ")
         .map(cookieStr=>{
-            const cookieParts = cookieStr.split("=");
+            /*const cookieParts = cookieStr.split("=");
             
-            if(cookieParts.length != 2)
+            if(cookieParts.length < 2)
                 throw new Error("An error occured while parsing a cookie");
             
             return {
-                name: cookieParts[0],
-                value: cookieParts[1]
-            };
+                name: decodeURIComponent(cookieParts[0]),
+                value: decodeURIComponent(cookieParts[1]),
+                meta: cookieParts.slice(2).map(decodeURIComponent)
+            };*/
+            
+            const splat = cookieStr.split("=");
+            const name = splat[0];
+            const valueToProcess = splat.slice(1).join("=").split("&");
+            let value = "";
+            
+            if(valueToProcess.length <= 1)
+                value = decodeURIComponent(valueToProcess.join(""));
+            else{
+                value = {};
+                for(const pair of valueToProcess){
+                    const [key, val] = pair.split("=");
+                    value[decodeURIComponent(key)] = decodeURIComponent(val);
+                }
+            }
+            
+            return {
+                name,
+                value
+            }
         });
     },
     
@@ -64,13 +85,7 @@ const Cooky = {
         
         const cookies = this.getAll();
         
-        
-        for(let cookie of cookies){
-            if(cookie.name === name)
-                return cookie.value;
-        }
-        
-        return null;
+        return cookies.find(cookie => cookie.name === name);
     },
     
     //////////////////////////////////////////////////////////////////
@@ -106,7 +121,7 @@ const Cooky = {
      */
     has(name){
         if(typeof name != "string")
-            throw new TypeError("A cookie's name is a String");
+            throw new TypeError("A cookie's name must be a String");
         
         return this.getAllAsObject().hasOwnProperty(name);
     }
@@ -126,5 +141,9 @@ function makeImmutable(object){
 
 makeImmutable(Cooky);
 
+if(typeof window != "undefined")
+    window.Cooky = Cooky;
 
-export default Cooky;
+export {
+    Cooky,
+}

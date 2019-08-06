@@ -42,7 +42,7 @@ config.entry["cooky"] = path.resolve(thisPath, "src/cooky.js");
 config.output = {
     path: path.resolve(thisPath, "dist"),
     filename: "cooky.js",
-    library: "Cooky",
+    library: "cooky",
     libraryTarget: "umd"
 };
 
