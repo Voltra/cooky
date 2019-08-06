@@ -8,18 +8,18 @@ It encapsulates all necessary methods in an handy object instead of using `docum
 
 ## How to install ?
 
-First, download the library either from [github]() or [npm]() (`npm i --save cooky`).
+First, download the library either from [github](https://github.com/Voltra/cooky) or [npm](https://www.npmjs.com/package/cooky) (`npm i -S cooky`).
 
 Then import/load it :
 
 ```js
 //es >= 6
-import Cooky from "cooky"
+import { Cooky } from "cooky"
 ```
 
 ```js
 //node
-const Cooky = require("cooky");
+const { Cooky } = require("cooky");
 ```
 
 ```html
